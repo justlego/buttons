@@ -57,6 +57,14 @@
 
 - (void)clicked:(UIButton *)button
 {
+    for (int count = 1000; count < _buttonTitleArr.count + 1000; count ++)
+    {
+        UIButton *btn = [(UIButton *)[button superview] viewWithTag:count];
+        [btn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    }
+    
+    [button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    
     [_lineView removeFromSuperview];
     _lineView = [[UIView alloc] init];
     _lineView.frame = CGRectMake(button.frame.origin.x, button.frame.origin.y + button.frame.size.height - 2, button.frame.size.width, 2);
